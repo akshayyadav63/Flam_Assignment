@@ -1,14 +1,22 @@
-// components/Navbar.jsx
 import Link from "next/link";
+import { signOut } from "next-auth/react";
 import { useHRContext } from "../context/HRContext";
-import { Moon, Sun, Users,Bookmark, BarChart3, Settings, Bell } from "lucide-react";
+import {
+  Moon,
+  Sun,
+  Users,
+  Bookmark,
+  BarChart3,
+  Settings,
+  Bell,
+  LogOut,
+} from "lucide-react";
 
 export default function Navbar() {
   const { darkMode, setDarkMode } = useHRContext();
 
   const navigationItems = [
     { href: "/", label: "Dashboard", icon: Users, color: "text-blue-600 dark:text-blue-400" },
-
     { href: "/bookmarks", label: "Bookmarks", icon: Bookmark, color: "text-purple-600 dark:text-purple-400" },
     { href: "/analytics", label: "Analytics", icon: BarChart3, color: "text-orange-600 dark:text-orange-400" }
   ];
@@ -47,9 +55,9 @@ export default function Navbar() {
             })}
           </div>
 
-          {/* Right Section - Notifications & Theme Toggle */}
+          {/* Right Section */}
           <div className="flex items-center space-x-3">
-            
+
             {/* Notifications */}
             <button className="relative p-2 rounded-xl text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800/50 transition-all duration-200">
               <Bell className="w-5 h-5" />
@@ -64,33 +72,39 @@ export default function Navbar() {
             {/* Theme Toggle */}
             <button
               onClick={() => setDarkMode(!darkMode)}
-              className="relative p-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
+              className="p-2 rounded-xl bg-gradient-to-r from-blue-500 to-purple-600 text-white hover:from-blue-600 hover:to-purple-700 shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-200"
               aria-label="Toggle dark mode"
             >
-              <div className="relative w-5 h-5">
-                {darkMode ? (
-                  <Sun className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
-                ) : (
-                  <Moon className="w-5 h-5" />
-                )}
-              </div>
+              {darkMode ? (
+                <Sun className="w-5 h-5 animate-spin" style={{ animationDuration: '3s' }} />
+              ) : (
+                <Moon className="w-5 h-5" />
+              )}
             </button>
 
-            {/* User Avatar */}
-            <div className="flex items-center space-x-2 pl-3 border-l border-gray-300 dark:border-gray-600">
+            {/* User Info + Logout */}
+            <div className="flex items-center space-x-3 pl-3 border-l border-gray-300 dark:border-gray-600">
               <div className="w-8 h-8 bg-gradient-to-br from-green-400 to-blue-500 rounded-full flex items-center justify-center text-white font-semibold text-sm shadow-lg">
                 HR
               </div>
-              <div className="hidden lg:block">
+              <div className="hidden lg:block text-right">
                 <p className="text-sm font-medium text-gray-900 dark:text-white">Admin</p>
                 <p className="text-xs text-gray-500 dark:text-gray-400">HR Manager</p>
               </div>
+
+              {/* Logout Button */}
+              <button
+                onClick={() => signOut({ callbackUrl: "/auth/signin" })}
+                className="p-2 rounded-xl text-red-600 dark:text-red-400 hover:text-red-800 dark:hover:text-red-300 hover:bg-red-100 dark:hover:bg-red-800/20 transition-all"
+                title="Logout"
+              >
+                <LogOut className="w-5 h-5" />
+              </button>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Mobile Navigation Indicator */}
       <div className="h-0.5 bg-gradient-to-r from-blue-600 via-purple-600 to-blue-600"></div>
     </nav>
   );
