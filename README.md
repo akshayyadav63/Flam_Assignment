@@ -3,6 +3,10 @@
 A modern, full-stack HR management dashboard built using **Next.js**, **Tailwind CSS**, **Context API**, and **NextAuth.js** for secure authentication. This app provides a sleek and intuitive UI for managing employees, bookmarks, analytics, and more — all with theme toggling and responsive design.
 
 ---
+## 🚀 Live Site
+
+🔗 [Live Demo](https://flam-assignment-hr-management.onrender.com)
+---
 
 ## 🚀 Features
 
@@ -36,7 +40,7 @@ A modern, full-stack HR management dashboard built using **Next.js**, **Tailwind
 - **Charts**: Recharts or Chart.js (your choice)
 - **Routing**: Next.js App Routing
 
----
+
 
 
 
