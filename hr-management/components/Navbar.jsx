@@ -1,14 +1,14 @@
 // components/Navbar.jsx
 import Link from "next/link";
 import { useHRContext } from "../context/HRContext";
-import { Moon, Sun, Users, Search, Bookmark, BarChart3, Settings, Bell } from "lucide-react";
+import { Moon, Sun, Users,Bookmark, BarChart3, Settings, Bell } from "lucide-react";
 
 export default function Navbar() {
   const { darkMode, setDarkMode } = useHRContext();
 
   const navigationItems = [
     { href: "/", label: "Dashboard", icon: Users, color: "text-blue-600 dark:text-blue-400" },
-    { href: "/search", label: "Search", icon: Search, color: "text-green-600 dark:text-green-400" },
+
     { href: "/bookmarks", label: "Bookmarks", icon: Bookmark, color: "text-purple-600 dark:text-purple-400" },
     { href: "/analytics", label: "Analytics", icon: BarChart3, color: "text-orange-600 dark:text-orange-400" }
   ];
