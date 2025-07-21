@@ -1,6 +1,6 @@
 // pages/bookmarks.jsx
 import Navbar from "../components/Navbar";
-import { useHRContext } from "./_app";
+import { useHRContext } from "../context/HRContext";
 
 export default function BookmarksPage() {
   const { bookmarks, setBookmarks } = useHRContext();

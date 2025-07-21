@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import Navbar from "../components/Navbar";
-import { useHRContext } from "./_app";
+import { useHRContext } from "../context/HRContext";
 import toast from "react-hot-toast";
 
 export default function Dashboard() {
