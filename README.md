@@ -37,7 +37,7 @@ A modern, full-stack HR management dashboard built using **Next.js**, **Tailwind
 - **State Management**: React Context API
 - **Auth**: NextAuth.js (GitHub Provider)
 - **Toasts**: react-hot-toast
-- **Charts**: Recharts or Chart.js (your choice)
+- **Charts**: Recharts or Chart.js 
 - **Routing**: Next.js App Routing
 
 
